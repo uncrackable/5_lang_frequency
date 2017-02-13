@@ -28,10 +28,10 @@ if __name__ == '__main__':
                                      "ten most popular words in text file")
     parser.add_argument('-f', '--file', required='True',
                         help='filepath to your text file')
-    args = parser.parse_args()
-    data = load_data(args.file)
-    if data is None:
+    arg = parser.parse_args()
+    text_content = load_data(arg.file)
+    if text_content is None:
         print('File or folder with that name does not exist')
     else:
-        pretty_print(get_most_frequent_words(data))
+        pretty_print(get_most_frequent_words(text_content))
 
