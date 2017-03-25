@@ -9,17 +9,18 @@ def load_data(filepath):
     if not os.path.exists(filepath):
         return None
     with open(filepath, 'r') as file_handler:
-        return file_handler.read().lower()
+        return file_handler.read()
 
 
 def get_most_frequent_words(text):
+    text = text.lower()
     result = re.findall(r'\w+', text)
     return Counter(result).most_common(MOST_COMMON_WORDS)
 
 
 def pretty_print(words):
     for idx, item in enumerate(words):
-        print('{}. {} : {}'.format(idx+1, item[0], item[1]))
+        print('{}. {} : {}'.format(idx+1, *item))
 
 
 if __name__ == '__main__':
